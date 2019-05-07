@@ -142,7 +142,7 @@ public class Arithmalogic : MonoBehaviour
     //int tpStages; This one is not needed for this module
     // TWITCH PLAYS SUPPORT
 
-	int[] aValues = new int[4];
+    int[] aValues = new int[4];
 	int[] bValues = new int[4];
 	int[] cValues = new int[4];
 
@@ -288,7 +288,7 @@ public class Arithmalogic : MonoBehaviour
         meshNumberB.GetComponentInChildren<TextMesh>().text = bValues[0].ToString();
         meshNumberC.GetComponentInChildren<TextMesh>().text = cValues[0].ToString();
 
-        Debug.LogFormat("[Arithmalogic #{0}] The given statement is {1} {2} {3} {4} {5} {6} {7} {8} {9}.", _moduleId, 
+        Debug.LogFormat("[Arithmelogic #{0}] The given statement is {1} {2} {3} {4} {5} {6} {7} {8} {9}.", _moduleId, 
             abParen ? "(" : "", 
             symbols[aSymbol], 
             operators[abOperator],
@@ -299,24 +299,24 @@ public class Arithmalogic : MonoBehaviour
             symbols[cSymbol],
             abParen ? "" : ")"
             );
-        Debug.LogFormat("[Arithmalogic #{0}] (Table positions are {1}, {2}, and {3} for A, B, and C respectively.)", _moduleId, aSymbol + 1, bSymbol + 1, cSymbol + 1);
-        Debug.LogFormat("[Arithmalogic #{0}] A's symbol, {1}, is equal to {2}, which is {3}.", _moduleId, symbols[aSymbol], symbolValueNames[aSymbol], aValue);
-        Debug.LogFormat("[Arithmalogic #{0}] B's symbol, {1}, is equal to {2}, which is {3}.", _moduleId, symbols[bSymbol], symbolValueNames[bSymbol], bValue);
-        Debug.LogFormat("[Arithmalogic #{0}] C's symbol, {1}, is equal to {2}, which is {3}.", _moduleId, symbols[cSymbol], symbolValueNames[cSymbol], cValue);
+        Debug.LogFormat("[Arithmelogic #{0}] (Table positions are {1}, {2}, and {3} for A, B, and C respectively.)", _moduleId, aSymbol + 1, bSymbol + 1, cSymbol + 1);
+        Debug.LogFormat("[Arithmelogic #{0}] A's symbol, {1}, is equal to {2}, which is {3}.", _moduleId, symbols[aSymbol], symbolValueNames[aSymbol], aValue);
+        Debug.LogFormat("[Arithmelogic #{0}] B's symbol, {1}, is equal to {2}, which is {3}.", _moduleId, symbols[bSymbol], symbolValueNames[bSymbol], bValue);
+        Debug.LogFormat("[Arithmelogic #{0}] C's symbol, {1}, is equal to {2}, which is {3}.", _moduleId, symbols[cSymbol], symbolValueNames[cSymbol], cValue);
 
-        Debug.LogFormat("[Arithmalogic #{0}] The submit button's symbol, {1}, means a number is true if {2}.", _moduleId, symbols[submitSymbol], symbolConditionNames[submitSymbol]);
+        Debug.LogFormat("[Arithmelogic #{0}] The submit button's symbol, {1}, means a number is true if {2}.", _moduleId, symbols[submitSymbol], symbolConditionNames[submitSymbol]);
 
-        Debug.LogFormat("[Arithmalogic #{0}] A's values are {1} (becomes {2} which is {3}), {4} (becomes {5} which is {6}), {7} (becomes {8} which is {9}), and {10} (becomes {11} which is {12})."
+        Debug.LogFormat("[Arithmelogic #{0}] A's values are {1} (becomes {2} which is {3}), {4} (becomes {5} which is {6}), {7} (becomes {8} which is {9}), and {10} (becomes {11} which is {12})."
             , _moduleId, aValues[0], (aValues[0] + aValue), determineNumberTruth(aValues[0] + aValue),
             aValues[1], (aValues[1] + aValue), determineNumberTruth(aValues[1] + aValue),
             aValues[2], (aValues[2] + aValue), determineNumberTruth(aValues[2] + aValue),
             aValues[3], (aValues[3] + aValue), determineNumberTruth(aValues[3] + aValue));
-        Debug.LogFormat("[Arithmalogic #{0}] B's values are {1} (becomes {2} which is {3}), {4} (becomes {5} which is {6}), {7} (becomes {8} which is {9}), and {10} (becomes {11} which is {12})."
+        Debug.LogFormat("[Arithmelogic #{0}] B's values are {1} (becomes {2} which is {3}), {4} (becomes {5} which is {6}), {7} (becomes {8} which is {9}), and {10} (becomes {11} which is {12})."
             , _moduleId, bValues[0], (bValues[0] + bValue), determineNumberTruth(bValues[0] + bValue),
             bValues[1], (bValues[1] + bValue), determineNumberTruth(bValues[1] + bValue),
             bValues[2], (bValues[2] + bValue), determineNumberTruth(bValues[2] + bValue),
             bValues[3], (bValues[3] + bValue), determineNumberTruth(bValues[3] + bValue));
-        Debug.LogFormat("[Arithmalogic #{0}] C's values are {1} (becomes {2} which is {3}), {4} (becomes {5} which is {6}), {7} (becomes {8} which is {9}), and {10} (becomes {11} which is {12})."
+        Debug.LogFormat("[Arithmelogic #{0}] C's values are {1} (becomes {2} which is {3}), {4} (becomes {5} which is {6}), {7} (becomes {8} which is {9}), and {10} (becomes {11} which is {12})."
             , _moduleId, cValues[0], (cValues[0] + cValue), determineNumberTruth(cValues[0] + cValue),
             cValues[1], (cValues[1] + cValue), determineNumberTruth(cValues[1] + cValue),
             cValues[2], (cValues[2] + cValue), determineNumberTruth(cValues[2] + cValue),
@@ -346,158 +346,191 @@ public class Arithmalogic : MonoBehaviour
         }
     */
 
-    /*
-    #pragma warning disable 414
-        private readonly string TwitchHelpMessage = @"Use !{0} (submit/s) (Bird type) (Cat type) (Accessory) to submit an answer. The types 'blue jay' and 'snow leopard' can be combined into one word, 'housecat' can be two.";
-        private readonly bool TwitchShouldCancelCommand = false;
-    #pragma warning restore 414
 
-        private IEnumerator ProcessTwitchCommand(string command)
+#pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"Use !{0} (submit/s) 97 98 99 to submit 97 for the first display's shown number, 98 for the second, and 99 for the third. Use !{0} cycle A/B/C to cycle that display, and !{0} cycle all to cycle all displays.";
+    private readonly bool TwitchShouldCancelCommand = false;
+#pragma warning restore 414
+
+    private IEnumerator ProcessTwitchCommand(string command)
+    {
+
+        tpActive = true;
+        var pieces = command.ToLowerInvariant().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        
+
+
+        string theError;
+        theError = "";
+        if (pieces.Count() == 0)
         {
-
-            tpActive = true;
-            var piecesRaw = command.ToLowerInvariant().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-
-            var pieces = new string[] { "bad", "bad", "bad", "bad" };
-
-
-            string theError;
-            theError = "";
-            yield return null;
-            if (piecesRaw.Count() == 0)
+            theError = "sendtochaterror No arguments! You need to use submit/s 97 98 99 to submit or cycle A/B/C/all to cycle.";
+            yield return theError;
+        }
+        else if (pieces.Count() < 2)
+        {
+            theError = "sendtochaterror Not enough arguments! You need to use submit/s 97 98 99 to submit or cycle A/B/C/all to cycle";
+            yield return theError;
+        }
+        else if (pieces[0] != "submit" && pieces[0] != "s" && pieces[0] != "cycle" && pieces[0] != "c")
+        {
+            theError = "sendtochaterror Invalid argument! You need to use submit/s 97 98 99 to submit or cycle A/B/C/all to cycle";
+            yield return theError;
+        }
+        else if (pieces.Length > 1 && (pieces[0] == "cycle" || pieces[0] == "c"))
+        {
+            if (pieces[1] == "all")
             {
-                theError = "sendtochaterror No arguments! You need to use submit/s, then a bird type, a cat type, and an accessory (submit bird cat accessory)";
-                yield return theError;
+                yield return null;
+                for (int bNum = 0; bNum < 3; bNum++)
+                {
+                    for (int cNum = 0; cNum < 4; cNum++)
+                    {
+
+                            yield return new WaitForSeconds(1f);
+                            yield return "trycancel";
+                            switch (bNum)
+                            {
+                                case 0:
+                                    buttonA.OnInteract();
+                                    break;
+                                case 1:
+                                    buttonB.OnInteract();
+                                    break;
+                                default:
+                                    buttonC.OnInteract();
+                                    break;
+                            }
+                        if (TwitchShouldCancelCommand)
+                        {
+                            cNum = 4;
+                            bNum = 3;
+                            yield return "cancelled";
+                        }
+                    }
+                }
+
             }
-            else if (piecesRaw.Count() < 4)
+            else if (pieces[1] == "a")
             {
-                theError = "sendtochaterror Not enough arguments! You need to use submit/s, then a bird type, a cat type, and an accessory (submit bird cat accessory)";
-                yield return theError;
+                yield return null;
+                for (int cNum = 0; cNum < 4; cNum++)
+                {
+
+                        yield return new WaitForSeconds(1f);
+                        yield return "trycancel";
+                        buttonA.OnInteract();
+
+                    if (TwitchShouldCancelCommand)
+                    {
+                        cNum = 4;
+                        yield return "cancelled";
+                    }
+                }
+            }
+            else if (pieces[1] == "b")
+            {
+                yield return null;
+                for (int cNum = 0; cNum < 4; cNum++)
+                {
+                        yield return new WaitForSeconds(1f);
+                        yield return "trycancel";
+                        buttonB.OnInteract();
+
+                    if (TwitchShouldCancelCommand)
+                    {
+                        cNum = 4;
+                        yield return "cancelled";
+                    }
+                }
+            }
+            else if (pieces[1] == "c")
+            {
+                yield return null;
+                for (int cNum = 0; cNum < 4; cNum++)
+                {
+                        yield return new WaitForSeconds(1f);
+                        yield return "trycancel";
+                        buttonC.OnInteract();
+
+                    if (TwitchShouldCancelCommand)
+                    {
+                        cNum = 4;
+                        yield return "cancelled";
+                    }
+                }
             }
             else
             {
-                pieces[0] = piecesRaw[0];
-                if ((piecesRaw[1] == "blue" && piecesRaw[2] == "jay") || piecesRaw[1] == "bluejay")
+                theError = "sendtochaterror Invalid argument! You need to use cycle (a, b, c, or all) to cycle";
+                yield return theError;
+            }
+        }
+        else if (pieces.Length > 1 && (pieces[0] == "submit" || pieces[0] == "s"))
+        {
+            var failedSubmit = true;
+            for (int cNum = 0; cNum < 4; cNum++)
+            {
+                if (aValues[cNum] == pieces[1].TryParseInt())
                 {
-                    pieces[1] = "bj";
-                }
-                else
-                {
-                    pieces[1] = piecesRaw[1];
-                }
-                if ((piecesRaw[2] == "house" && piecesRaw[3] == "cat") || (piecesRaw[3] == "house" && piecesRaw[4] == "cat") || piecesRaw[2] == "housecat" || piecesRaw[3] == "housecat")
-                {
-                    pieces[2] = "hc";
-                }
-                if ((piecesRaw[2] == "snow" && piecesRaw[3] == "leopard") || (piecesRaw[3] == "snow" && piecesRaw[4] == "leopard") || piecesRaw[2] == "snowleopard" || piecesRaw[3] == "snowleopard")
-                {
-                    pieces[2] = "sl";
-                }
-                else
-                {
-                    if (piecesRaw[1] == "blue")
-                    {
-
-                        pieces[2] = piecesRaw[3];
-                    }
-                    else
-                    {
-
-                        pieces[2] = piecesRaw[2];
-                    }
-                }
-                pieces[3] = piecesRaw[piecesRaw.Count() - 1];
-                Debug.LogFormat("You entered >>> " + pieces[0] + " " + pieces[1] + " " + pieces[2] + " " + pieces[3] + " <<< which I hope makes sense");
-                if (pieces.Count() < 4)
-                {
-                    theError = "sendtochaterror Not enough arguments! You need to use submit/s, then a bird type, a cat type, and an accessory (submit bird cat accessory)";
-                    yield return theError;
-                }
-                else if (pieces[0] != "submit" && pieces[0] != "s")
-                {
-                    Debug.Log(piecesRaw[0] + " and " + pieces[0]);
-                    theError = "sendtochaterror Invalid arguments! You need to use submit/s to submit.";
-                    yield return theError;
-                }
-                else if (pieces[1] != "eagle" && pieces[1] != "falcon" && pieces[1] != "peacock" && pieces[1] != "cardinal" && pieces[1] != "bj" && pieces[1] != "crow")
-                {
-                    theError = "sendtochaterror Invalid bird type! Valid types are eagle, falcon, peacock, cardinal, blue jay/bluejay, crow.";
-                    yield return theError;
-                }
-                else if (pieces[2] != "tiger" && pieces[2] != "lion" && pieces[2] != "cheetah" && pieces[2] != "panther" && pieces[2] != "sl" && pieces[2] != "hc")
-                {
-                    theError = "sendtochaterror Invalid cat type! Valid types are tiger, lion, cheetah, panther, snow leopard/snowleopard, housecat/house cat.";
-                    yield return theError;
-                }
-                else if (pieces[3] != "watch" && pieces[3] != "visor" && pieces[3] != "shoes" && pieces[3] != "scarf" && pieces[3] != "headphones" && pieces[3] != "shades")
-                {
-                    theError = "sendtochaterror Invalid accessory type! Valid types are watch, visor, shoes, scarf, headphones, shades.";
-                    yield return theError;
-                }
-                else
-                {
-                    if (pieces[1] == "bj")
-                    {
-                        while (birds[currentBird] != "Blue Jay")
-                        {
-                            yield return new WaitForSeconds(.1f);
-                            yield return null;
-                            birdUp.OnInteract();
-                        }
-                    }
-                    else
-                    {
-                        while (birds[currentBird].ToLowerInvariant() != pieces[1])
-                        {
-                            yield return new WaitForSeconds(.1f);
-                            yield return null;
-                            birdUp.OnInteract();
-                        }
-                    }
-
-                    if (pieces[2] == "sl")
-                    {
-                        while (cats[currentCat] != "Snow Leopard")
-                        {
-                            yield return new WaitForSeconds(.1f);
-                            yield return null;
-                            catUp.OnInteract();
-                        }
-                    }
-                    else if (pieces[2] == "hc")
-                    {
-                        while (cats[currentCat] != "Housecat")
-                        {
-                            yield return new WaitForSeconds(.1f);
-                            yield return null;
-                            catUp.OnInteract();
-                        }
-                    }
-                    else
-                    {
-                        while (cats[currentCat].ToLowerInvariant() != pieces[2])
-                        {
-                            yield return new WaitForSeconds(.1f);
-                            yield return null;
-                            catUp.OnInteract();
-                        }
-                    }
-                    while (accessories[currentAccessory].ToLowerInvariant() != pieces[3])
-                    {
-                        yield return new WaitForSeconds(.1f);
-                        yield return null;
-                        accessoryRight.OnInteract();
-                    }
-                    yield return new WaitForSeconds(.1f);
-                    yield return null;
-                    submit.OnInteract();
+                    failedSubmit = false;
                 }
             }
+            if (failedSubmit)
+            {
+                theError = "sendtochaterror Invalid argument for position A! " + pieces[1] + " was not a valid displayed number.";
+                yield return theError;
+            }
+            failedSubmit = true;
+            for (int cNum = 0; cNum < 4; cNum++)
+            {
+                if (bValues[cNum] == pieces[2].TryParseInt())
+                {
+                    failedSubmit = false;
+                }
+            }
+            if (failedSubmit)
+            {
+                theError = "sendtochaterror Invalid argument for position B! " + pieces[2] + " was not a valid displayed number.";
+                yield return theError;
+            }
+            failedSubmit = true;
+            for (int cNum = 0; cNum < 4; cNum++)
+            {
+                if (cValues[cNum] == pieces[3].TryParseInt())
+                {
+                    failedSubmit = false;
+                }
+            }
+            if (failedSubmit)
+            {
+                theError = "sendtochaterror Invalid argument for position C! " + pieces[3] + " was not a valid displayed number.";
+                yield return theError;
+            }
+            while (aValues[currentDisplayA] != pieces[1].TryParseInt())
+            {
+                yield return new WaitForSeconds(.1f);
+                yield return null;
+                buttonA.OnInteract();
+            }
+            while (bValues[currentDisplayB] != pieces[2].TryParseInt())
+            {
+                yield return new WaitForSeconds(.1f);
+                yield return null;
+                buttonB.OnInteract();
+            }
+            while (cValues[currentDisplayC] != pieces[3].TryParseInt())
+            {
+                yield return new WaitForSeconds(.1f);
+                yield return null;
+                buttonC.OnInteract();
+            }
+            yield return new WaitForSeconds(.1f);
+            yield return null;
+            submit.OnInteract();
+        }
+    }
 
-         }
-
-    */
 
     void doPressA()
     {
@@ -534,11 +567,11 @@ public class Arithmalogic : MonoBehaviour
             //aValue = aSymbol + aValues[currentDisplayA];
             //bValue = bSymbol + bValues[currentDisplayB];
             //cValue = cSymbol + cValues[currentDisplayC];
-            Debug.LogFormat("[Arithmalogic #{0}] A's symbol value, {1}, plus the displayed number for A, {2}, is equal to {3}, which is {4}.", 
+            Debug.LogFormat("[Arithmelogic #{0}] A's symbol value, {1}, plus the displayed number for A, {2}, is equal to {3}, which is {4}.", 
                 _moduleId, aValue, aValues[currentDisplayA], finalAValue, finalA.ToString());
-            Debug.LogFormat("[Arithmalogic #{0}] B's symbol value, {1}, plus the displayed number for B, {2}, is equal to {3}, which is {4}.", 
+            Debug.LogFormat("[Arithmelogic #{0}] B's symbol value, {1}, plus the displayed number for B, {2}, is equal to {3}, which is {4}.", 
                 _moduleId, bValue, bValues[currentDisplayB], finalBValue, finalB.ToString());
-            Debug.LogFormat("[Arithmalogic #{0}] C's symbol value, {1}, plus the displayed number for C, {2}, is equal to {3}, which is {4}.", 
+            Debug.LogFormat("[Arithmelogic #{0}] C's symbol value, {1}, plus the displayed number for C, {2}, is equal to {3}, which is {4}.", 
                 _moduleId, cValue, cValues[currentDisplayC], finalCValue, finalC.ToString());
             var wrongString = "";
             finalA = determineNumberTruth(finalAValue);
@@ -550,7 +583,7 @@ public class Arithmalogic : MonoBehaviour
             {
                 interValue = figureTruth(finalA, finalB, abOperator);
                 finalValue = figureTruth(interValue, finalC, bcOperator);
-                Debug.LogFormat("[Arithmalogic #{0}] A {2} B, or ({1} {2} {3}), is {4}, and {4} {5} {6} is {7}.",
+                Debug.LogFormat("[Arithmelogic #{0}] A {2} B, or ({1} {2} {3}), is {4}, and {4} {5} {6} is {7}.",
                     _moduleId, finalA.ToString(), operators[abOperator], finalB.ToString(), interValue.ToString(),
                     operators[bcOperator], finalC.ToString(), finalValue.ToString());
             }
@@ -558,7 +591,7 @@ public class Arithmalogic : MonoBehaviour
             {
                 interValue = figureTruth(finalB, finalC, bcOperator);
                 finalValue = figureTruth(finalA, interValue, abOperator);
-                Debug.LogFormat("[Arithmalogic #{0}] B {2} C, or ({1} {2} {3}), is {4}, and {5} {6} {4} is {7}.",
+                Debug.LogFormat("[Arithmelogic #{0}] B {2} C, or ({1} {2} {3}), is {4}, and {5} {6} {4} is {7}.",
                     _moduleId, finalB.ToString(), operators[bcOperator], finalC.ToString(), interValue.ToString(),
                     finalA.ToString(), operators[abOperator], finalValue.ToString());
             }
@@ -592,14 +625,14 @@ public class Arithmalogic : MonoBehaviour
             }
             if (wrongString == "")
             {
-                Debug.LogFormat("[Arithmalogic #{0}] No higher displayed numbers for A, B, or C could be selected which would keep their respective truth values the same, and the statement is true, so the module is disarmed!", _moduleId);
+                Debug.LogFormat("[Arithmelogic #{0}] No higher displayed numbers for A, B, or C could be selected which would keep their respective truth values the same, and the statement is true, so the module is disarmed!", _moduleId);
                 pressedAllowed = false;
                 isSolved = true;
                 Module.HandlePass();
             }
             else
             {
-                Debug.LogFormat("[Arithmalogic #{0}] {1}Strike given!", _moduleId, wrongString);
+                Debug.LogFormat("[Arithmelogic #{0}] {1}Strike given!", _moduleId, wrongString);
                 wrongString = "";
                 Module.HandleStrike();
             }

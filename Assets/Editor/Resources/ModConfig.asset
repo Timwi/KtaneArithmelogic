@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: arithmelogic
   title: Arithmelogic
-  description: 'Arithmelogic v1.00
+  description: 'Arithmelogic v1.01
 
     (Math is fun) ^ (Bomb is armed) = True.
 
 
-    Manual to be available here: https://ktane.timwi.de/HTML/Arithmelogic.html'
-  version: 1.00
+    Manual available here: https://ktane.timwi.de/HTML/Arithmelogic.html'
+  version: 1.01
   outputFolder: build
   previewImage: {fileID: 2800000, guid: a311cff583bfdbb40992bff0c534cac9, type: 3}
