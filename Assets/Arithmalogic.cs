@@ -154,6 +154,8 @@ public class Arithmalogic : MonoBehaviour
     int aValue;
     int bValue;
     int cValue;
+	
+	string submitButtonSymbol;
 
     int abOperator;
     int bcOperator;
@@ -207,6 +209,7 @@ public class Arithmalogic : MonoBehaviour
         bSymbol = aSymbol;
         cSymbol = aSymbol;
         submitSymbol = aSymbol;
+		
 
         meshSymbolA.GetComponentInChildren<TextMesh>().text = symbols[aSymbol];
 
@@ -279,7 +282,7 @@ public class Arithmalogic : MonoBehaviour
         meshSymbolB.GetComponentInChildren<TextMesh>().text = symbols[bSymbol];
         meshSymbolC.GetComponentInChildren<TextMesh>().text = symbols[cSymbol];
         meshSymbolSubmit.GetComponentInChildren<TextMesh>().text = symbols[submitSymbol];
-
+		submitButtonSymbol = symbols[submitSymbol];
         currentDisplayA = 0;
         currentDisplayB = 0;
         currentDisplayC = 0;
@@ -387,7 +390,7 @@ public class Arithmalogic : MonoBehaviour
                     for (int cNum = 0; cNum < 4; cNum++)
                     {
 
-                            yield return new WaitForSeconds(1f);
+                            yield return new WaitForSeconds(2f);
                             yield return "trycancel";
                             switch (bNum)
                             {
@@ -417,7 +420,7 @@ public class Arithmalogic : MonoBehaviour
                 for (int cNum = 0; cNum < 4; cNum++)
                 {
 
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(2f);
                         yield return "trycancel";
                         buttonA.OnInteract();
 
@@ -433,7 +436,7 @@ public class Arithmalogic : MonoBehaviour
                 yield return null;
                 for (int cNum = 0; cNum < 4; cNum++)
                 {
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(2f);
                         yield return "trycancel";
                         buttonB.OnInteract();
 
@@ -449,7 +452,7 @@ public class Arithmalogic : MonoBehaviour
                 yield return null;
                 for (int cNum = 0; cNum < 4; cNum++)
                 {
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(2f);
                         yield return "trycancel";
                         buttonC.OnInteract();
 
@@ -628,6 +631,10 @@ public class Arithmalogic : MonoBehaviour
                 Debug.LogFormat("[Arithmelogic #{0}] No higher displayed numbers for A, B, or C could be selected which would keep their respective truth values the same, and the statement is true, so the module is disarmed!", _moduleId);
                 pressedAllowed = false;
                 isSolved = true;
+				if (Bomb.GetSolvableModuleNames().Where(x => "Souvenir".Contains(x)).Count() > 0)
+				{
+					meshSymbolSubmit.GetComponentInChildren<TextMesh>().text = "!!";
+				}
                 Module.HandlePass();
             }
             else

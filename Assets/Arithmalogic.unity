@@ -152,6 +152,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 102871060671754142, guid: baec359cd46bc60499b8014ac8033856,
+        type: 2}
+      propertyPath: m_Text
+      value: "\u2605"
+      objectReference: {fileID: 0}
+    - target: {fileID: 102821272799270274, guid: baec359cd46bc60499b8014ac8033856,
+        type: 2}
+      propertyPath: m_Text
+      value: Q
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baec359cd46bc60499b8014ac8033856, type: 2}
   m_IsPrefabParent: 0
