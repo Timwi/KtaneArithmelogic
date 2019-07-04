@@ -233,6 +233,9 @@ public class Arithmelogic : MonoBehaviour
                 Debug.LogFormat("[Arithmelogic #{0}] Module disarmed!", _moduleId);
                 isSolved = true;
                 SubmitButtonSymbol.text = "!!";
+                EquationText.text = "";
+                for (int i = 0; i < NumberDisplays.Length; i++)
+                    NumberDisplays[i].text = "";
                 Audio.PlaySoundAtTransform("beep2", Module.transform);
                 Module.HandlePass();
             }
