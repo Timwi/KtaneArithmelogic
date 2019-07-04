@@ -13,12 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: arithmelogic
   title: Arithmelogic
-  description: 'Arithmelogic v1.03
-
-    (Math is fun) ^ (Bomb is armed) = True.
-
-
-    Manual available here: https://ktane.timwi.de/HTML/Arithmelogic.html'
+  description: "Arithmelogic v1.03\n(Math is fun) \u22BB (Bomb is armed) = True.\n\nManual
+    available here: https://ktane.timwi.de/HTML/Arithmelogic.html\n\nSolve sound from
+    freesound.org:\nhttps://freesound.org/people/InspectorJ/sounds/403014/"
   version: 1.03
   outputFolder: build
   previewImage: {fileID: 2800000, guid: a311cff583bfdbb40992bff0c534cac9, type: 3}
